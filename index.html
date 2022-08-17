@@ -1,1 +1,127 @@
-<span>防具</span>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript サンプル</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+	<p><font size="6" color="red">新しい装備を入力するときはCtrl+F5を押すとリセットできます</font></p>
+	<span>防具</span>
+	</br>
+	<span>↓読み仮名の頭文字を1文字入れて絞り込みボタンを押す</span>
+	</br>
+	<input type="text" id="armorName" name="armorName" required minlength="1" maxlength="1" size="10">
+	<input type="button" id="armorExec1" value="防具絞り込み" onclick="onExecBtnClick('armorName','armorOpt',armorArr);"/>
+	<select name="armorOpt" id="armorOpt"></select>
+	<select name="part" id="part">
+		<option value="頭">頭</option>
+		<option value="胴">胴</option>
+		<option value="腕">腕</option>
+		<option value="腰">腰</option>
+		<option value="脚">脚</option>
+	</select>
+	</br>
+	</br>
+	<span>スロット</span>
+	</br>
+	<select name="slotOpt1" id="slotOpt1">
+		<option value="0">-</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+	</select>
+	</br>
+	<select name="slotOpt2" id="slotOpt2">
+		<option value="0">-</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+	</select>
+	</br>
+	<select name="slotOpt3" id="slotOpt3">
+		<option value="0">-</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+	</select>
+	</br>
+	</br>
+	<span>スキル</span>
+	</br>
+	<span>↓読み仮名の頭文字を1文字入れて絞り込みボタンを押す</span>
+	</br>
+	<input type="text" id="skillName1" name="skillName1" required minlength="1" maxlength="1" size="10">
+	<input type="button" id="skillExec1" value="スキル絞り込み" onclick="onExecBtnClick('skillName1','skillOpt1',skillArr);"/>
+	<select name="skillOpt1" id="skillOpt1"></select>
+	<input type="radio" id ="skillLevelplus1" name ="skillLevel1" value="" checked = checked>+
+	<input type="radio" id ="skillLevelminus1" name="skillLevel1" value="-">-
+	<input type="text" id="skillLevel1" name="skillLevel1" value = 0 required minlength="1" maxlength="1" size="1">
+	</br>
+	<input type="text" id="skillName2" name="skillName2" required minlength="1" maxlength="1" size="10">
+	<input type="button" id="skillExec2" value="スキル絞り込み" onclick="onExecBtnClick('skillName2','skillOpt2',skillArr);"/>
+	<select name="skillOpt2" id="skillOpt2"></select>
+	<input type="radio" id ="skillLevelplus2" name ="skillLevel2" value="" checked = checked>+
+	<input type="radio" id ="skillLevelminus2" name="skillLevel2" value="-">-
+	<input type="text" id="skillLevel2" name="skillLevel1" value = 0 required minlength="1" maxlength="1" size="1">
+	</br>
+	<input type="text" id="skillName3" name="skillName3" required minlength="1" maxlength="1" size="10">
+	<input type="button" id="skillExec3" value="スキル絞り込み" onclick="onExecBtnClick('skillName3','skillOpt3',skillArr);"/>
+	<select name="skillOpt3" id="skillOpt3"></select>
+	<input type="radio" id ="skillLevelplus3" name ="skillLevel3" value="" checked = checked>+
+	<input type="radio" id ="skillLevelminus3" name="skillLevel3" value="-">-
+	<input type="text" id="skillLevel3" name="skillLevel3" value = 0 required minlength="1" maxlength="1" size="1">
+	</br>
+	<input type="text" id="skillName4" name="skillName4" required minlength="1" maxlength="1" size="10">
+	<input type="button" id="skillExec4" value="スキル絞り込み" onclick="onExecBtnClick('skillName4','skillOpt4',skillArr);"/>
+	<select name="skillOpt4" id="skillOpt4"></select>
+	<input type="radio" id ="skillLevelplus4" name ="skillLevel4" value="" checked = checked>+
+	<input type="radio" id ="skillLevelminus4" name="skillLevel4" value="-">-
+	<input type="text" id="skillLevel4" name="skillLevel4" value = 0 required minlength="1" maxlength="1" size="1">
+	</br>
+	</br>
+	<span>防御補正</span>
+	</br>
+	<span>防御</span>
+	<input type="radio" id ="defenseLevelplus1" name ="defenseLevel1" value="" checked = checked>+
+	<input type="radio" id ="defenseLevelminus1" name="defenseLevel1" value="-">-
+	<input type="text" id="defenseLevel1" name="defenseLevel1" value="0" required minlength="1" maxlength="2" size="2">
+	</br>
+	</br>	
+	<span>火耐</span>
+	<input type="radio" id ="defenseLevelplus2" name ="defenseLevel2" value="" checked = checked>+
+	<input type="radio" id ="defenseLevelminus2" name="defenseLevel2" value="-">-
+	<input type="text" id="defenseLevel2" name="defenseLevel2" value="0" required minlength="1" maxlength="2" size="2">
+	</br>
+	<span>水耐</span>
+	<input type="radio" id ="defenseLevelplus3" name ="defenseLevel3" value="" checked = checked>+
+	<input type="radio" id ="defenseLevelminus3" name="defenseLevel3" value="-">-
+	<input type="text" id="defenseLevel3" name="defenseLevel3" value="0" required minlength="1" maxlength="2" size="2">
+	</br>
+	<span>雷耐</span>
+	<input type="radio" id ="defenseLevelplus4" name ="defenseLevel4" value="" checked = checked>+
+	<input type="radio" id ="defenseLevelminus4" name="defenseLevel4" value="-">-
+	<input type="text" id="defenseLevel4" name="defenseLevel4" value="0" required minlength="1" maxlength="2" size="2">
+	</br>
+	<span>氷耐</span>
+	<input type="radio" id ="defenseLevelplus5" name ="defenseLevel5" value="" checked = checked>+
+	<input type="radio" id ="defenseLevelminus5" name="defenseLevel5" value="-">-
+	<input type="text" id="defenseLevel5" name="defenseLevel5" value="0" required minlength="1" maxlength="2" size="2">
+	</br>
+	<span>龍耐</span>
+	<input type="radio" id ="defenseLevelplus6" name ="defenseLevel6" value="" checked = checked>+
+	<input type="radio" id ="defenseLevelminus6" name="defenseLevel6" value="-">-
+	<input type="text" id="defenseLevel6" name="defenseLevel6" value="0" required minlength="1" maxlength="2" size="2">
+	</br>
+	</br>
+	</br>
+	</br>
+	<input type="button" id="resultExec1" value="文字列生成" onclick="onResultExecBtnClick();"/>
+	<input type="textarea" id="result" name="result" size="50">
+
+
+</body>
+</html>
